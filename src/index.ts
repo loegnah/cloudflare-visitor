@@ -15,11 +15,11 @@ async function fetchNav(request: Request, env: Env, ctx: ExecutionContext) {
 }
 
 async function handleVisit(searchParams: URLSearchParams, db: KVNamespace) {
-  const visitorCnt = await db.get("visitorCnt");
-  const value = visitorCnt ? parseInt(visitorCnt) + 1 : 1;
-  await db.put("visitorCnt", value.toString());
+  const visitCntInDB = await db.get("visitorCnt");
+  let visitCnt = visitCntInDB ? parseInt(visitCntInDB) + 1 : 1;
+  await db.put("visitorCnt", visitCnt.toString());
 
-  return new Response(makeBadge(value), {
+  return new Response(makeBadge(visitCnt), {
     headers: {
       "Content-Type": "image/svg+xml;",
       "Cache-Control": "no-cache",
