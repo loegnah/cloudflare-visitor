@@ -1,3 +1,6 @@
 name = "loegnah-github"
 main = "src/index.ts"
 compatibility_date = "2022-11-22"
+kv_namespaces = [
+  { binding = "DB", id = "4491e77edc434513acf18d17932c5dc0", preview_id = "bd60407756534983adbff870301ef642" }
+]
